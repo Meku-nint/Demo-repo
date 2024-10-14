@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> mn </title>
+        <style>
+            body{
+                background-color: rgb(229, 208, 183);
+            }
+            h2{
+                text-align: center;
+                color: rgb(55, 27, 146);
+                font-size: 35px;
+                font-style: oblique;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            #list{
+                margin-left: 300px;
+                color: blue;
+                font-style: unset;
+            }
+            h3{
+                text-align: center;
+                color: rgb(92, 62, 121);
+            }
+        </style>
+    </head>
+    <body>
+        <h2> <u><i>well come to this page  </i></u>...</h2>
+        <h3>Hellow every one this is js full crash course </h3>
+    <ul id="list">
+           <li hidden class="hiddenitem">be patiant  </li>
+           <li>being consistancy </li>
+           <li>being strong  </li>
+           <li>practice every part of the program ...</li>
+           <button class="showall">show all</button>
+    </ul>
+        <script >
+            let hiddenitem=document.querySelector(".hiddenitem");
+            let showall=document.querySelector(".showall");
+            showall.addEventListener("click",function(){
+                hiddenitem.hidden=false;
+            })
+        </script>
+    </body>
+</html>

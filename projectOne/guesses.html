@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guessing the Number</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: hwb(0 91% 5%);
+        }
+        #container {
+            padding: 30px;
+            width: 530px;
+            height: 450px;
+            background-color: hsla(0, 0%, 100%, 0.936);
+            border-radius: 50px;
+        }
+        h1 {
+            font-size: 26px;
+            font-style: oblique;
+            color: rgb(145, 42, 42);
+        }
+        input {
+            width: 40px;
+            height: 20px;
+            font-size: large;
+            padding: 10px;
+            border-radius: 10px;
+            margin-left: 70px;
+            border: 2px solid aquamarine;
+        }
+        .feedback {
+            font-size: 30px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-style: italic;
+            color: rgb(145, 30, 203);
+            margin-left: 200px;
+        }
+        #submit {
+            margin: 20px;
+            height: 40px;
+            border-radius: 10px;
+            color: white;
+            font-size: 17px;
+            background-color: rgb(32, 146, 49);
+        }
+        h2 {
+            font-style: italic;
+            padding-left: 200px;
+        }
+        #highscore {
+            font-size: 25px;
+            padding-left: 50px;
+            padding: 5px;
+        }
+        #reset {
+            font-size: 22px;
+            padding: 8px;
+            width: 100px;
+            border: 3px solid blueviolet;
+            background-color: brown;
+            margin-left: 200px;
+            border-radius: 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 id="gussing_number">Guessing the Number Between 1 to 20 🤣</h1>
+        <h2 id="start">Start guessing ...</h2>
+        <input type="number" class="input_the_number" maxlength="2" min="1" max="20" required>
+        <button id="submit">Submit Guess</button>
+        <div class="feedback"></div>
+        <p id="highscore"><i>High Score: 0</i></p>
+        <button id="reset">Reset</button>
+    </div>
+    <script>
+        let random_value = Math.floor(Math.random() * 20) + 1;
+        console.log(random_value);
+        
+        let feedback = document.querySelector('.feedback');
+        let inputField = document.querySelector(".input_the_number");
+        let submitButton = document.querySelector("#submit");
+        let resetButton = document.querySelector("#reset");
+        let highscores=document.querySelector("#highscore");
+        let x=0;
+        submitButton.addEventListener("click", function() {
+            x=x+1;
+            let guessedValue = parseInt(inputField.value);
+            if (guessedValue === random_value) {
+                feedback.innerText = "Congratulations! 👍";
+                highscores.innerText="High Score :"+x;
+            } else if(guessedValue<random_value) {
+                feedback.innerText = "Too low! 😞";
+            }
+            else{
+                feedback.innerText="Too high!😊";
+            }
+        });
+
+        resetButton.addEventListener("click", function() {
+            inputField.value = '';
+            feedback.innerText = '';
+            random_value = Math.floor(Math.random() * 20) + 1;
+            console.log(random_value);
+            highscores.innerText="High Score :"+20;
+
+        });
+    </script>
+</body>
+</html>

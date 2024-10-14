@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            height: 100vh; 
+            margin: 0; 
+            background-color: rgba(112, 100, 100, 0.731);
+            padding: 20px;
+            box-sizing: border-box; 
+        }
+        .feedback{
+            text-align: center;
+            width: 300px;
+            height: 30px;
+            background-color: bisque;
+            font-size: 15px;
+            color:white;
+        }
+        .container {
+            border-radius: 30px;
+            width: 100%; 
+            max-width: 400px;
+            height: auto; 
+            text-align: center;
+            background-color: white;
+            padding: 20px; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+            margin-top:-70px;
+        }
+        .services {
+            color:rgb(74, 32, 32);
+            font-size: 17px;
+            margin-top: 50px;
+            align-items: center;
+            text-align: center; 
+            max-width: 600px; 
+            padding: 10px; 
+            background-color: rgba(16, 133, 96, 0.8); 
+            border-radius: 10px; 
+        }
+        button {
+            margin: 10px;
+            width: 100px;
+            height:30px;
+            font-size:15px;
+            font-weight: bold;
+            color:white;
+            background-color: rgba(19, 15, 15, 0.708);
+            cursor: pointer;
+            border-radius: 7px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Welcome To Our Page</h1>
+        <button class="show1">Services</button>
+        <button class="show2">Location</button>
+        <button class="show3">Contact Us</button>
+    </div>
+<div hidden id="services" class="services">
+    At <b><i>🤣Hullu Shop😱</b></i>, we offer a wide range of coffee and beverage options to satisfy every palate. Our menu includes:<br>
+    <b><i>1,Freshly Brewed Coffee:</b></i> Enjoy our selection of single-origin and blended coffees, expertly brewed to perfection.<br>
+    <b><i>2,Specialty Teas:</b></i> Explore our assortment of premium teas, from classic black and green to herbal infusions.<br>
+<b><i>3,Delivery Service:</b></i> Conveniently order online and have your favorite beverages delivered right to your doorstep.<br>
+</div>
+<div hidden id ="location"class="services">We are located in the heart of <i><b>Addis Ababa</b></i>, making it easy for you to visit us or order for delivery. Our cozy café provides a warm and inviting atmosphere for coffee lovers.<br>
+    Address:<b>🤣Hullu Shop😱,Arada,Addis Ababa,Ethiopia</b>
+♥</div>
+ <div hidden id="contactus"class="services">We’re here to help! Whether you have questions about our menu, need assistance with your order, or want to provide feedback, feel free to reach out to us.<br>
+    <b>Phone: +251944544343269</b><br>
+    <P></P><a href="mailto:astanmite323.com">this is our email</a></P>
+    You can also fill out our contact form on our website, and we’ll get back to you as soon as possible. We value your feedback and look forward to serving you delicious coffee!<br>
+    <label>Feed back:</label><input class="feedback"placeholder="Enter your feedback"><button class="submit">submit</button><br>
+    Feel free to customize the names, addresses, and details to fit your specific coffee delivery service.</div>
+    <script>
+let feedback=document.querySelector(".feedback");
+let submit=document.querySelector(".submit");
+let service=document.querySelector("#services");
+let locations=document.querySelector("#location");
+let contactus=document.querySelector("#contactus");
+let show1=document.querySelector(".show1");
+let show2=document.querySelector(".show2");
+let show3=document.querySelector(".show3");
+show1.addEventListener("click",function(){
+service.hidden=false;
+locations.hidden=true;
+contactus.hidden=true;
+})
+show2.addEventListener("click",function(){
+    locations.hidden=false;
+    contactus.hidden=true;
+    service.hidden=true;
+
+})
+show3.addEventListener("click",function(){
+contactus.hidden=false;
+service.hidden=true;
+locations.hidden=true;
+submit.addEventListener("click",function(){
+    if(feedback.value==""){
+        alert("Sorry you havn't enter any feedback try again!");
+        }
+    else
+    alert("Thanks for your's feedback 🙏🙏🙏");
+})})
+    </script>
+</body>
+</html>

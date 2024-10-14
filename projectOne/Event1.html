@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test DOM</title>
+    <style>
+        body {
+            text-align: center;
+            text-justify: justify-content;
+        }
+        input {
+            border: 3px solid;
+            width: 200px;
+            height: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 13px;
+            border-color: rgb(96, 15, 15);
+            padding: 2px;
+            margin: 10px;
+            text-align: center;
+            font-style: italic;
+        }
+        label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        button {
+            margin: 10px;
+            width: 100px;
+            height: 35px;
+            padding: 5px;
+            font-size: 17px;
+            background-color: rgb(72, 12, 12);
+            color: white;
+            border-radius: 15px;
+        }
+        h1 {
+            font-style: italic;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        h2 {
+            color: rgb(15, 193, 110);
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+        <h1>Simple Form</h1>
+        <div>
+            <label>Name:
+                <input class="name" type="text" placeholder="Full name" required>
+            </label>
+        </div>
+        <div>
+            <label>Phone:
+                <input type="tel" class="number" required placeholder="Phone">
+            </label>
+        </div>
+        <div>
+            <label>Email:
+                <input class="gmail" type="text" required placeholder="gmail">
+            </label>
+        </div>
+        <div>
+            <label>Age:
+                <input class="age" type="number" max="10" min="1" required>
+            </label>
+        </div>
+        <div>
+            <button class="submit" type="submit">Submit</button>
+        </div>
+        <h2 class="h2"></h2>
+    </form>
+    <script>
+        function validateForm() {
+            // Check if the form is valid
+            var form = document.querySelector('form');
+            if (form.checkValidity()) {
+                newpage(); // Call newpage if valid
+                return false; // Prevent actual form submission
+            }
+            return false; // Prevent form submission if invalid
+        }
+
+        function newpage() {
+            var submission = document.getElementsByClassName("h2")[0];
+            console.log(submission)
+            submission.innerHTML = "Your form has been submitted successfully!";
+        }
+    </script>
+</body>
+</html>
